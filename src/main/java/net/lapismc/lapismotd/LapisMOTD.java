@@ -35,7 +35,16 @@ public final class LapisMOTD extends JavaPlugin implements Listener {
     public void onPing(ServerListPingEvent e) {
         reloadConfig();
         String configMOTD = ChatColor.translateAlternateColorCodes('&', getConfig().getString("MOTD"));
-        e.setMotd(Chat.centerMotD(configMOTD));
+        String MOTD = "";
+        if (configMOTD.contains("\n")) {
+            String[] lines = configMOTD.split("\n");
+            for (String s : lines) {
+                MOTD = MOTD + Chat.centerMotD(s) + "\n";
+            }
+        } else {
+            MOTD = Chat.centerMotD(configMOTD);
+        }
+        e.setMotd(MOTD);
     }
 
 }

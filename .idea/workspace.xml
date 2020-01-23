@@ -260,10 +260,10 @@
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2522" y="100" width="706" height="843" key="CommitChangelistDialog2" timestamp="1579750102377">
+    <state x="2522" y="100" width="706" height="843" key="CommitChangelistDialog2" timestamp="1579750132264">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2522" y="100" width="706" height="843" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750102377" />
+    <state x="2522" y="100" width="706" height="843" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750132264" />
     <state width="1878" height="278" key="GridCell.Tab.0.bottom" timestamp="1579750096438">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -280,5 +280,9 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="278" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750096438" />
+    <state x="2475" y="260" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1579750136287">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2475" y="260" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750136287" />
   </component>
 </project>

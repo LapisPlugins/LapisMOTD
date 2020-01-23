@@ -1,5 +1,6 @@
 name: LapisMOTD
 version: ${project.version}
+api-version: 1.15
 main: net.lapismc.lapismotd.LapisMOTD
 authors: [Dart2112]
 description: MOTD plugin for Lapis MC

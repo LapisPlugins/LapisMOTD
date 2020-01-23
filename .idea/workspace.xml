@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="da3a1d16-2262-4966-9c8a-57777c822e64" name="Default" comment="Update to 1.14.2&#10;Changed to a different centering code&#10;Removed debug messages">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+    <list default="true" id="da3a1d16-2262-4966-9c8a-57777c822e64" name="Default" comment="Update API version">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +20,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIEW_PUSH_ON_COMMIT_AND_PUSH" value="false" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -46,6 +45,7 @@
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546605075545" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet">
@@ -204,7 +204,7 @@
       <workItem from="1484709403646" duration="1111000" />
       <workItem from="1546604046094" duration="1322000" />
       <workItem from="1562650055984" duration="798000" />
-      <workItem from="1579749974186" duration="84000" />
+      <workItem from="1579749974186" duration="190000" />
     </task>
     <task id="LOCAL-00001" summary="added centering">
       <created>1484708968757</created>
@@ -227,7 +227,21 @@
       <option name="project" value="LOCAL" />
       <updated>1562650848220</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update to 1.15.2&#10;Added idea files">
+      <created>1579750132833</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1579750132833</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update API version">
+      <created>1579750161985</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1579750161985</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,16 +268,18 @@
     <MESSAGE value="added centering" />
     <MESSAGE value="Added multiline support" />
     <MESSAGE value="Update to 1.14.2&#10;Changed to a different centering code&#10;Removed debug messages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update to 1.14.2&#10;Changed to a different centering code&#10;Removed debug messages" />
+    <MESSAGE value="Update to 1.15.2&#10;Added idea files" />
+    <MESSAGE value="Update API version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update API version" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2522" y="100" width="706" height="843" key="CommitChangelistDialog2" timestamp="1579750132264">
+    <state x="2522" y="100" width="706" height="843" key="CommitChangelistDialog2" timestamp="1579750161740">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2522" y="100" width="706" height="843" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750132264" />
+    <state x="2522" y="100" width="706" height="843" key="CommitChangelistDialog2/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750161740" />
     <state width="1878" height="278" key="GridCell.Tab.0.bottom" timestamp="1579750096438">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -280,9 +296,13 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="1878" height="278" key="GridCell.Tab.0.right/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750096438" />
-    <state x="2475" y="260" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1579750136287">
+    <state x="2376" y="159" key="SettingsEditor" timestamp="1579750177063">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2475" y="260" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750136287" />
+    <state x="2376" y="159" key="SettingsEditor/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750177063" />
+    <state x="2475" y="260" width="800" height="523" key="Vcs.Push.Dialog.v2" timestamp="1579750164533">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2475" y="260" width="800" height="523" key="Vcs.Push.Dialog.v2/0.0.1920.1050/1920.0.1920.1080@1920.0.1920.1080" timestamp="1579750164533" />
   </component>
 </project>

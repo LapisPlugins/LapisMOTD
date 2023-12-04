@@ -16,31 +16,35 @@
 
 package net.lapismc.lapismotd;
 
+import net.lapismc.lapiscore.LapisCorePlugin;
+import net.lapismc.lapiscore.utils.LapisCoreFileWatcher;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.server.ServerListPingEvent;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.map.MinecraftFont;
 
-public final class LapisMOTD extends JavaPlugin implements Listener {
+public final class LapisMOTD extends LapisCorePlugin implements Listener {
+
+    LapisCoreFileWatcher watcher;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
         Bukkit.getPluginManager().registerEvents(this, this);
+        watcher = new LapisCoreFileWatcher(this);
+        super.onEnable();
     }
 
     @EventHandler
     public void onPing(ServerListPingEvent e) {
-        reloadConfig();
         String configMOTD = ChatColor.translateAlternateColorCodes('&', getConfig().getString("MOTD"));
         StringBuilder MOTD = new StringBuilder();
         if (configMOTD.contains("\n")) {
             String[] lines = configMOTD.split("\n");
-            for (String s : lines) {
-                MOTD.append(centerText(s)).append("\n");
-            }
+            MOTD.append(centerText(lines[0])).append("\n");
+            MOTD.append(centerText(lines[1])).append("\n");
         } else {
             MOTD = new StringBuilder(centerText(configMOTD));
         }
@@ -48,37 +52,21 @@ public final class LapisMOTD extends JavaPlugin implements Listener {
     }
 
     public String centerText(String text) {
-        int lineLength = 80;
-        char[] chars = text.toCharArray(); // Get a list of all characters in text
-        boolean isBold = false;
-        double length = 0;
-        ChatColor pholder = null;
-        for (int i = 0; i < chars.length; i++) { // Loop through all characters
-            // Check if the character is a ColorCode..
-            if (chars[i] == '&' && chars.length != (i + 1) && (pholder = ChatColor.getByChar(chars[i + 1])) != null) {
-                if (pholder != ChatColor.UNDERLINE && pholder != ChatColor.ITALIC
-                        && pholder != ChatColor.STRIKETHROUGH && pholder != ChatColor.MAGIC) {
-                    isBold = (chars[i + 1] == 'l'); // Setting bold  to true or false, depending on if the ChatColor is Bold.
-                    length--; // Removing one from the length, of the string, because we don't wanna count color codes.
-                    i += isBold ? 1 : 0;
-                }
-            } else {
-                // If the character is not a color code:
-                length++; // Adding a space
-                length += (isBold ? (chars[i] != ' ' ? 0.1555555555555556 : 0) : 0); // Adding 0.156 spaces if the character is bold.
-            }
-        }
-
-        double spaces = (lineLength - length) / 2; // Getting the spaces to add by (max line length - length) / 2
-
-        // Adding the spaces
+        //Strip colors since they don't have width
+        String colorlessText = ChatColor.stripColor(text);
+        //Get the desired width, if it's set
+        int pixelsToUse = getConfig().getInt("Pixels", 195);
+        //Get the width of the text
+        int pixelsWide = MinecraftFont.Font.getWidth(colorlessText);
+        //Calculate how many pixels we need in front
+        int pixelsToAdd = (int) Math.rint((double) (pixelsToUse - pixelsWide) / 2);
+        //Calculate how many spaces it takes to make that many pixels
+        int spaces = (int) Math.rint((double) pixelsToAdd / MinecraftFont.Font.getChar(' ').getWidth());
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < spaces; i++) {
-            builder.append(' ');
-        }
-        String copy = builder.toString();
-        builder.append(text).append(copy);
-        return builder.toString();
+        //Add said spaces
+        builder.append(" ".repeat(Math.max(0, spaces)));
+        //Put the spaces in front of the original text
+        return builder + text;
     }
 
 }

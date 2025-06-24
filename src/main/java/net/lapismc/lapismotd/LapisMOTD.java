@@ -28,18 +28,26 @@ import org.bukkit.map.MinecraftFont;
 public final class LapisMOTD extends LapisCorePlugin implements Listener {
 
     LapisCoreFileWatcher watcher;
+    String serverVersion;
 
     @Override
     public void onEnable() {
         saveDefaultConfig();
         Bukkit.getPluginManager().registerEvents(this, this);
+        //Register the watcher to make sure that edits to the config are reloaded live
         watcher = new LapisCoreFileWatcher(this);
+        //Get the server version for replacement in MOTD
+        serverVersion = Bukkit.getServer().getVersion().split("-")[0];
         super.onEnable();
     }
 
     @EventHandler
     public void onPing(ServerListPingEvent e) {
+        //Get the MOTD and translate the colors
         String configMOTD = ChatColor.translateAlternateColorCodes('&', getConfig().getString("MOTD"));
+        //Translate the server version from the string
+        configMOTD = configMOTD.replace("%ServerVersion%", serverVersion);
+        //Handle if there are 2 lines, centre them both after split
         StringBuilder MOTD = new StringBuilder();
         if (configMOTD.contains("\n")) {
             String[] lines = configMOTD.split("\n");
@@ -48,6 +56,7 @@ public final class LapisMOTD extends LapisCorePlugin implements Listener {
         } else {
             MOTD = new StringBuilder(centerText(configMOTD));
         }
+        //Set the MOTD
         e.setMotd(MOTD.toString());
     }
 

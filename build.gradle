@@ -16,22 +16,22 @@
 
 plugins {
     id 'java'
-    id "com.github.johnrengelman.shadow" version "8.1.1"
+    id "com.gradleup.shadow" version "9.0.0-rc1"
 }
 
 group = 'net.lapismc'
 archivesBaseName = "LapisMOTD"
-version = '3.4.1'
+version = '3.4.2'
 description = 'A fancy little MOTD Plugin'
-sourceCompatibility = '17'
-targetCompatibility = '17'
+sourceCompatibility = '21'
+targetCompatibility = '21'
 defaultTasks 'clean', 'build', 'shadowJar'
 
 repositories {
     mavenCentral()
-    //Spigot Repo
+    //Paper Repo
     maven {
-        url = uri('https://hub.spigotmc.org/nexus/content/groups/public/')
+        url = 'https://repo.papermc.io/repository/maven-public/'
     }
     //Personal Repo
     maven {
@@ -41,8 +41,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'net.lapismc:LapisCore:1.12.19'
-    compileOnly 'org.spigotmc:spigot-api:1.21.6-R0.1-SNAPSHOT'
+    implementation 'net.lapismc:LapisCore:1.13.1'
+    compileOnly 'io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT'
 }
 
 processResources {
@@ -53,6 +53,7 @@ processResources {
 
 shadowJar {
     archiveFileName.set(archivesBaseName + ".jar")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     exclude 'javax/**'
     relocate("net.lapismc.lapiscore", "net.lapismc.lapismotd.core")
 }
